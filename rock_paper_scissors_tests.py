@@ -4,6 +4,7 @@ import sys
 
 from assertions import assert_equals
 from rock_paper_scissors import WINNER_HAND_1, WINNER_HAND_2, DRAW, SCISSORS, PAPER, ROCK, rock_paper_scissors
+from test_runner import run_tests
 
 
 def test_rock_blunts_scissors():
@@ -25,12 +26,6 @@ def test_rock_is_wrapped_by_paper():
 def test_rock_draws_with_rock():
     assert_equals(DRAW, rock_paper_scissors(ROCK, ROCK))
 
-def main():
-    tests = [fn for (name, fn) in inspect.getmembers(sys.modules[__name__]) if
-             name.startswith('test') and inspect.isfunction(fn)]
-    for test in tests:
-        test()
-
 
 if __name__ == '__main__':
-    main()
+    run_tests(sys.modules[__name__])

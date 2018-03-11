@@ -1,5 +1,8 @@
+import sys
+
 from fizzbuzz import fizzbuzz
 from assertions import assert_equals
+from test_runner import run_tests
 
 
 def test_fizzbuzz_1_is_1():
@@ -28,3 +31,7 @@ def test_fizzbuzz_10_is_Buzz():
 
 def test_fizzbuzz_15_is_FizzBuzz():
     assert_equals('FizzBuzz', fizzbuzz(15))
+
+
+if __name__ == '__main__':
+    run_tests(sys.modules[__name__])
